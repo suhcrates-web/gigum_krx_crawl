@@ -3,22 +3,27 @@
 #딕셔너리를 csv파일로
 def dict_to_file(dic, filename ):
     with open(f'data/date/{filename}.csv', 'w') as f:
-        list = []
-        for i in [*dic[[*dic][0]]]:
-            list.append(str(i))
-            list.append(',')
-        list[-1] = '\n'
-        # print(list)
-        f.writelines(list)
 
-        for i in [*dic]:
+        if dic == None:
+            f.writelines([])
+        else:
+
             list = []
-            for ii in [*dic[i]]:
-                list.append(str(dic[i][ii]))
+            for i in [*dic[[*dic][0]]]:
+                list.append(str(i))
                 list.append(',')
             list[-1] = '\n'
             # print(list)
             f.writelines(list)
+
+            for i in [*dic]:
+                list = []
+                for ii in [*dic[i]]:
+                    list.append(str(dic[i][ii]))
+                    list.append(',')
+                list[-1] = '\n'
+                # print(list)
+                f.writelines(list)
 
 
 
